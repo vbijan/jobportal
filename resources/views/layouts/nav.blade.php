@@ -36,9 +36,9 @@
       </li>
     </ul>
     @endguest
-     <form class="navbar-form navbar-left">
+     <form class="navbar-form navbar-left" action="{{route('search')}}" method="GET"> 
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" name="search_field" class="form-control" placeholder="Search" value="{{$_GET['search_field'] or ''}}">
       </div>
     </form>
   </div>

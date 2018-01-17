@@ -34,6 +34,8 @@ Route::get('/job', 'JobController@create');
 Route::post('/job', 'JobController@store')->name('add_job');
 Route::get('/show_jobs','JobController@show');
 Route::get('/job/{job}','JobController@view');
+Route::get('/searchJob', 'JobController@search')->name('search');
+
 
 
 Route::get('/job_seeker_register','RegisterController@jobseeker_register');

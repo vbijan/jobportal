@@ -70,5 +70,15 @@ class JobController extends Controller
                 'job' => $job
             ]);
     }
+
+    public function search(){
+        $category = Category::all();
+        $search_field = $_GET['search_field'];
+        $count = Job::where('title','like','%' . $search_field . '%')->count();
+        //dd($count);
+        $data = Job::where('title', 'like', '%' . $search_field . '%')->get();
+        //dd($data);
+        return view('job.search', compact('count','data','category'));
+    }
     
 }
