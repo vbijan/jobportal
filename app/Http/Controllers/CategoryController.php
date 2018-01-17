@@ -42,9 +42,11 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function jobs($id){
-        
-        $jobs = Job::where('category_id', $id)->get();
+    public function jobs($slug){
+        $category_id = Category::where("slug", $slug)->first();
+        //$category_id = DB::table('categories')->select('id')->where('slug',$slug)->get(); 
+        //dd($category_id->id);
+        $jobs = Job::where('category_id', $category_id->id)->get();
        
         $category = Category::all();
         return view('category.jobs',compact('jobs','category'));

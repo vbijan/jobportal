@@ -3,7 +3,7 @@
 					<center><h3>Job list by Category</h3></center>
 					<ul class="ul">
 						@foreach($category as $cat)
-							<a href="/category/{{$cat->id}}"><li>{{$cat->title}}</li></a>
+							<a href="/category/{{$cat->slug}}"><li>{{$cat->title}}</li></a>
 						@endforeach
 					</ul>
 				</div>

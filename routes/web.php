@@ -17,7 +17,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category', 'CategoryController@create');
 Route::post('/category', 'CategoryController@store')->name('add_category');
 Route::get('/show_category','CategoryController@show');
-Route::get('/category/{id}','CategoryController@jobs');
+Route::get('/category/{slug}','CategoryController@jobs');
 Route::get('/category/{id}/edit','CategoryController@edit');
 Route::patch('/category/update/{id}','CategoryController@update')->name('category.update');
 Route::get('/category/destroy/{id}', 'CategoryController@destroy')->name('category.destroy');
