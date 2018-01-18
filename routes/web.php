@@ -30,9 +30,12 @@ Route::post('/company', 'CompanyController@store')->name('add_company');
 Route::get('/show_company','CompanyController@show');
 Route::get('/company/{company}', 'CompanyController@view');
 
-Route::get('/job', 'JobController@create');
+Route::group(['middleware' => ['auth']], function() {
+	Route::get('/job', 'JobController@create');
+	Route::get('/show_jobs','JobController@show');
+
+});
 Route::post('/job', 'JobController@store')->name('add_job');
-Route::get('/show_jobs','JobController@show');
 Route::get('/job/{job}','JobController@view');
 Route::get('/searchJob', 'JobController@search')->name('search');
 
